@@ -1,0 +1,229 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+.background-container {
+    position: relative;
+    top: 60;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.background-media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+    position: relative;
+    top: 0;
+    left: 0px;
+}
+
+.background-media-grid img,
+.background-media-grid video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s ease-in-out;
+}
+
+.overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.marquee h2 {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll 10s linear infinite;
+    font-size: 3em;
+    color: #fff;
+    text-shadow: 2px 2px 5px #000;
+    -webkit-text-stroke: 1px #000;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.button-container button {
+    background: #4a4a4a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    margin: 5px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.button-container button:hover {
+    background: #6e6e6e;
+    color: #fff;
+}
+
+.container {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    transition: transform 0.3s ease-in-out;
+}
+
+#events-container {
+    right: 0;
+    width: 100%;
+    transform: translateX(100%);
+}
+
+#events-container.visible {
+    transform: translateX(0);
+}
+
+#contact-container {
+    right: 0;
+    width: 33.33%;
+    transform: translateX(100%);
+}
+
+#contact-container.visible {
+    transform: translateX(0);
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+#events-container ul,
+#contact-container form {
+    list-style-type: none;
+    padding: 30px;
+    margin: 0;
+    color: #d1d1d1;
+    background: #000000;
+}
+
+#events-container ul li,
+#contact-container form label {
+    margin: 10px 0;
+    color: #d1d1d1;
+    background: #000000;
+}
+
+#events-container ul li a,
+#contact-container form input {
+    color: #d1d1d1;
+    background: #000000;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 6px;
+    margin-bottom: 9px;
+    width: 100%;
+}
+
+/* Ensure input fields remain black with white text */
+#contact-container form input {
+    -webkit-text-fill-color: #d1d1d1; /* For webkit browsers */
+}
+
+#contact-container form input:focus, 
+#contact-container form input:hover, 
+#contact-container form input:active {
+    color: #d1d1d1;
+    background: #000000;
+    border: 1px solid #d1d1d1; /* Optional: add border for focus state */
+}
+
+#events-container ul li a:hover {
+    color: #d1d1d1;
+    background: #000000;
+}
+
+#contact-container form button {
+    background: #4a4a4a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+#contact-container h2 {
+    font-size: 2em; /* Adjust the font size as needed */
+    padding: 0px; /* Adjust the padding as needed */
+    color: #fff; /* Adjust the color as needed */
+    text-align: center; /* Adjust the text alignment as needed */
+}
+
+#contact-container h3 {
+    font-size: 1em; /* Adjust the font size as needed */
+    padding: 0px; /* Adjust the padding as needed */
+    color: #dddddd; /* Adjust the color as needed */
+    text-align: center; /* Adjust the text alignment as needed */
+}
+
+#contact-container form button:hover {
+    background: #000000;
+    color: #d1d1d1;
+}
+
+.background-media-grid .media-element-wrapper {
+    position: relative;
+}
+
+.background-media-grid .media-element-wrapper .clickable-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0); /* Initially invisible */
+}
+
+/* Autofill background color */
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #000 inset !important;
+    -webkit-text-fill-color: #d1d1d1 !important;
+}
+
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 30px #000 inset !important;
+    -webkit-text-fill-color: #d1d1d1 !important;
+}
+
+input:-webkit-autofill:hover {
+    -webkit-box-shadow: 0 0 0 30px #000 inset !important;
+    -webkit-text-fill-color: #d1d1d1 !important;
+}
